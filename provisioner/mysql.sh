@@ -16,12 +16,12 @@ args_db_host=*
 # suppress prompts
 export DEBIAN_FRONTEND=noninteractive
 
-# install MySQL
+sudo apt-get install -y mysql-client
 sudo -E apt-get install -qq mysql-server 
 
 # create database
-mysql -uroot -e "create database ${args_db_name};" > /dev/null
+mysql -uroot -e "create database ${args_db_name};"
 
 # create user, and grant all permissions to new DB
-mysql -uroot -e "grant all privileges on ${args_db_name}.* to '${args_db_user}'@'${args_db_host}' identified by '${args_db_pass}';" > /dev/null
+mysql -uroot -e "grant all privileges on ${args_db_name}.* to '${args_db_user}'@'${args_db_host}' identified by '${args_db_pass}';"
 
